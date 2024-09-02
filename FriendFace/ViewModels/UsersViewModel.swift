@@ -22,7 +22,7 @@ class UsersViewModel: ObservableObject {
         urlRequest.httpMethod = "GET"
         
         do {
-            let (result, _) = try await ShaftConnector().data(for: urlRequest)
+            let (result, _) = try await URLSession.shared.data(for: urlRequest)
             
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
